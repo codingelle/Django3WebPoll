@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+  
+{% block title %} Poll Detail {% endblock title %}
+
+{% block content %}
+
+  <h1>{{ question.question_text|lower }}</h1>
+  <ul>
+    {% for choice in question.choice_set.all %}
+        <li>{{ choice.choice_text }}</li>
+    {% endfor %}
+  </ul>
+
+
+{% endblock content %}
