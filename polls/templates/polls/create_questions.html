@@ -1,0 +1,19 @@
+
+
+{% extends 'base.html' %}
+  
+{% block title %} Create Qeustion {% endblock title %}
+
+{% block content %}
+
+	<form action="{% url 'polls:create_question' %}" method="post">
+	   {% csrf_token %}
+    {{form.as_p }}
+
+	<input type="submit" value="Create Question">
+	
+	</form>
+
+
+
+{% endblock content %}
