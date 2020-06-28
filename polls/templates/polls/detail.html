@@ -2,6 +2,7 @@
 {% extends 'base.html' %}
   
 {% block title %} Poll Detail {% endblock title %}
+{% block subtitle %} Question Detail {% endblock subtitle %}
 
 {% block content %}
 
@@ -16,7 +17,11 @@
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
 {% endfor %}
-<input type="submit" value="Vote">
+<!-- Accent-colored raised button -->
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+  Vote
+</button>
+
 </form>
 
 

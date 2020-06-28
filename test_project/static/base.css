@@ -1,1 +1,38 @@
 
+*, *:before, *:after {
+ box-sizing: border-box;
+}
+
+html, body {
+  margin:0;
+  padding:0;
+  background-color: #CCC;
+}
+
+img {
+ object-fit: cover;
+ width:100vw;
+ height:30vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'subtitle'
+                       'question_list';
+  background-color: white;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+
+.subtitle {
+  grid-area: subtitle;
+  justify-self: left;
+}
+
+.question_list {
+ grid-area: question_list;
+ justify-self: center;
+}
+
