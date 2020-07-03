@@ -18,7 +18,9 @@
           <input class="mdl-textfield__input" type="password" id="id_password" name="password">
           <label class="mdl-textfield__label" for="id_password">Password..</label>
         </div>
+        {% if next %}
         <input type="hidden" value="{{next}}" name="next"/>
+        {% endif %}
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
             Login
           </button>
