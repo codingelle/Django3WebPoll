@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 from .models import Question
 from django.template import loader
@@ -8,6 +9,7 @@ from django.http import Http404
 from .forms import QuestionForm
 
 # Create your views here.
+@login_required
 def index(request):
     latest_question_list = Question.objects.all()
     context = {
@@ -17,6 +19,7 @@ def index(request):
     return render(request, 'polls/index.html', context)
 
 
+@login_required
 def detail(request, question_id):
 
     try:
@@ -26,10 +29,12 @@ def detail(request, question_id):
     return render(request, 'polls/detail.html', {'question': question})
 
 
+@login_required
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
 
+@login_required
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
@@ -49,6 +54,7 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 
+@login_required
 def create_question(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST)

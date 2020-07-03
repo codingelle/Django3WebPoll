@@ -1,0 +1,14 @@
+html, body {
+  background-color: lightgray;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.accounts-container {
+  background-color: white ;
+  justify-self: center;
+  padding:2rem;
+  width:20vw;
+}
+
